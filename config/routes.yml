@@ -1,0 +1,8 @@
+technicalannouncement_conf_form:
+  path: /technicalannouncement/config
+  methods: [GET, POST]
+  defaults:
+    _controller: 'PrestaShop\Module\TechnicalAnnouncement\Controller\TechnicalAnnouncementController::index'
+    # Needed to work with tab system
+    _legacy_controller: AdminTechnicalAnnouncement
+    _legacy_link: AdminTechnicalAnnouncement

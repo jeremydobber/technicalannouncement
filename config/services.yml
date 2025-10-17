@@ -1,0 +1,33 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.technicalannouncement.form.type.technicalannouncement_conf_form:
+    class: 'PrestaShop\Module\TechnicalAnnouncement\Form\TechnicalAnnouncementConfFormType'
+    parent: "form.type.translatable.aware"
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.technicalannouncement.form.technicalannouncement_configuration:
+    class: 'PrestaShop\Module\TechnicalAnnouncement\Form\TechnicalAnnouncementConfiguration'
+    arguments: ["@prestashop.adapter.legacy.configuration"]
+
+  prestashop.module.technicalannouncement.form.technicalannouncement_dataprovider:
+    class: 'PrestaShop\Module\TechnicalAnnouncement\Form\TechnicalAnnouncementDataProvider'
+    arguments:
+      - '@prestashop.module.technicalannouncement.form.technicalannouncement_configuration'
+
+  prestashop.module.technicalannouncement.form.technicalannouncement_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.technicalannouncement.form.technicalannouncement_dataprovider'
+      - 'PrestaShop\Module\TechnicalAnnouncement\Form\TechnicalAnnouncementConfFormType'
+      - 'Configuration'
+
+  PrestaShop\Module\TechnicalAnnouncement\Controller\TechnicalAnnouncementController:
+    autowire: true
+    autoconfigure: true
+    tags: ['controller.service_arguments']
