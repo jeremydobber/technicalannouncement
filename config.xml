@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>technicalannouncement</name>
+    <name>spotlightproduct</name>
     <displayName><![CDATA[Technical announcement]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Display a warning in the very top part of your shop about the next scheduled maintenance.]]></description>

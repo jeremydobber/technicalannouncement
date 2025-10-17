@@ -22,10 +22,6 @@ class ComposerStaticInit96cd4de17310ad71b68d200e29830dc4
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PrestaShop\\Module\\TechnicalAnnouncement\\Form\\TechnicalAnnouncementConfiguration' => __DIR__ . '/../..' . '/src/Form/TechnicalAnnouncementConfiguration.php',
-        'PrestaShop\\Module\\TechnicalAnnouncement\\Form\\TechnicalAnnouncementDataProvider' => __DIR__ . '/../..' . '/src/Form/TechnicalAnnouncementDataProvider.php',
-        'Prestashop\\Module\\TechnicalAnnouncement\\Controller\\TechnicalAnnouncementController' => __DIR__ . '/../..' . '/src/Controller/TechnicalAnnouncementController.php',
-        'Prestashop\\Module\\TechnicalAnnouncement\\Form\\TechnicalAnnouncementConfFormType' => __DIR__ . '/../..' . '/src/Form/TechnicalAnnouncementConfFormType.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
