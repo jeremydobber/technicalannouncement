@@ -86,9 +86,12 @@ class TechnicalAnnouncement extends Module
 
     public function hookDisplayBanner()
     {
+        $json_message = Configuration::get('TECHNICALANNOUNCEMENT_MESSAGE');
+        $message = json_decode($json_message, true);
+
         $this->context->smarty->assign([
             'technicalannouncement_isactive' => Configuration::get('TECHNICALANNOUNCEMENT_ISACTIVE'),
-            'technicalannouncement_message' => Configuration::get('TECHNICALANNOUNCEMENT_MESSAGE'),
+            'technicalannouncement_message' => $message[(int) $this->context->language->id],
         ]);
 
         return $this->display(__FILE__, 'technicalannouncement.tpl');

@@ -48,7 +48,9 @@ final class TechnicalAnnouncementConfiguration implements DataConfigurationInter
         $return = [];
 
         $return['isactive'] = $this->configuration->get(static::TECHNICALANNOUNCEMENT_ISACTIVE);
-        $return['message'] = $this->configuration->get(static::TECHNICALANNOUNCEMENT_MESSAGE);
+        $string_message = $this->configuration->get(static::TECHNICALANNOUNCEMENT_MESSAGE);
+        $return['message'] = json_decode($string_message, true);
+        
         return $return;
     }
 
@@ -58,7 +60,7 @@ final class TechnicalAnnouncementConfiguration implements DataConfigurationInter
 
         if ($this->validateConfiguration($configuration)) {
             $this->configuration->set(static::TECHNICALANNOUNCEMENT_ISACTIVE, $configuration['isactive']);
-            $this->configuration->set(static::TECHNICALANNOUNCEMENT_MESSAGE, $configuration['message']);
+            $this->configuration->set(static::TECHNICALANNOUNCEMENT_MESSAGE, json_encode($configuration['message']));
         }
 
         return $errors;
@@ -66,6 +68,6 @@ final class TechnicalAnnouncementConfiguration implements DataConfigurationInter
 
     public function validateConfiguration(array $configuration)
     {
-        return isset($configuration['message']);
+        return true;
     }
 }

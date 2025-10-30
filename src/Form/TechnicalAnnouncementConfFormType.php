@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2025 Jeremy Dobberman
  *
@@ -32,13 +33,14 @@ use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use PrestaShopBundle\Form\Admin\Type\TranslatableType;
 
 class TechnicalAnnouncementConfFormType extends TranslatorAwareType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message', TextType::class, [
+            ->add('message', TranslatableType::class, [
                 'label' => $this->trans('Message', 'Modules.Technicalannouncement.Admin'),
                 'help' => $this->trans('This message will be displayed in the very top part of every page. Make it concise.', 'Modules.Technicalannouncement.Admin'),
                 'required' => true,

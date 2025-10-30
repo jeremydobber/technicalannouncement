@@ -22,3 +22,8 @@
 	</div>
 	{{ form_end(TechnicalAnnouncementConfFormType) }}
 {% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('../modules/technicalannouncement/views/js/form.js') }}"></script>
+{% endblock %}

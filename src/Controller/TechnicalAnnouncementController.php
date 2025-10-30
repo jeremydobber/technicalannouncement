@@ -47,6 +47,8 @@ class TechnicalAnnouncementController extends PrestaShopAdminController
         if ($form->isSubmitted() && $form->isValid()) {
             $errors = $formDataHandler->save($form->getData());
 
+            // Cannot store mutlilang message array in Configuration DB. Con json_encode tampoco.
+
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Successful update.', [], 'Admin.Notifications.Success'));
                 return $this->redirectToRoute('technicalannouncement_conf_form');
