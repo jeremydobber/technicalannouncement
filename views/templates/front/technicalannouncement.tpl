@@ -18,7 +18,7 @@
  * @copyright Since 2025 Jeremy Dobberman
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  *}
-{if ($technicalannouncement_isactive)}
+{if ($technicalannouncement_isactive && $technicalannouncement_message)}
   <div id="technicalannouncement-block" class="border-bottom py-1 bg-warning">
     <div class="container">
       <p class="mb-0 text-center">{$technicalannouncement_message}</p>

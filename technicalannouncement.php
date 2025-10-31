@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2025 Jeremy Dobberman
  *
@@ -89,9 +90,11 @@ class TechnicalAnnouncement extends Module
         $json_message = Configuration::get('TECHNICALANNOUNCEMENT_MESSAGE');
         $message = json_decode($json_message, true);
 
+        $message[(int) $this->context->language->id] ? $message = $message[(int) $this->context->language->id] : $message = $message[(int) Configuration::get('PS_LANG_DEFAULT')];
+
         $this->context->smarty->assign([
             'technicalannouncement_isactive' => Configuration::get('TECHNICALANNOUNCEMENT_ISACTIVE'),
-            'technicalannouncement_message' => $message[(int) $this->context->language->id],
+            'technicalannouncement_message' => $message,
         ]);
 
         return $this->display(__FILE__, 'technicalannouncement.tpl');
